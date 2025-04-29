@@ -104,6 +104,15 @@
 
 
 
+<!--        &lt;!&ndash; 引入 spring-pulsar &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-pulsar</artifactId>-->
+<!--        </dependency>-->
+
+
+
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
