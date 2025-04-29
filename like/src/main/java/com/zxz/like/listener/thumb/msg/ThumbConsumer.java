@@ -36,6 +36,14 @@ import java.util.stream.Collectors;
 //            schemaType = SchemaType.JSON,   //指定消息的序列化类型为 JSON
 //            batch = true,                   //设置为 true，表示启用批量消费
 //            consumerCustomizer = "thumbConsumerConfig"  //指定消费者的自定义配置类为 thumbConsumerConfig
+//            // 引用 NACK 重试策略
+//            negativeAckRedeliveryBackoff = "negativeAckRedeliveryBackoff",
+//            // 引用 ACK 超时重试策略
+//            ackTimeoutRedeliveryBackoff = "ackTimeoutRedeliveryBackoff"
+//            // 死信仅适用于 shared 类型
+//            subscriptionType = SubscriptionType.Shared,
+//            // 引用死信队列策略
+//            deadLetterPolicy = "deadLetterPolicy"
 //    )
 //    @Transactional(rollbackFor = Exception.class)   //Spring 的事务注解，确保该方法内的数据库操作在一个事务中执行，若出现异常则回滚事务
 //    public void processBatch(List<ReactiveSubscription.Message<ThumbEvent>> messages) {
@@ -115,4 +123,16 @@ import java.util.stream.Collectors;
 //            thumbService.saveBatch(thumbs, 500);
 //        }
 //    }
+
+
+//@PulsarListener(topics = "thumb-dlq-topic")
+//public void consumerDlq(Message<ThumbEvent> message) {
+//    MessageId messageId = message.getMessageId();
+//    log.info("dlq message = {}", messageId);
+//    log.info("消息 {} 已入库", messageId);
+//    log.info("已通知相关人员 {} 处理消息 {}", "坤哥", messageId);
+//}
+
+
+
 //}
